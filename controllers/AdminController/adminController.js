@@ -250,3 +250,8 @@ module.exports.updatePassword = async (req,res)=>{
     }
 
 }
+
+
+module.exports.showData = async (req,res) =>{
+    console.log("hi");
+}
