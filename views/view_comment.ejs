@@ -1,0 +1,91 @@
+
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="container-fluid  dashboard-content">
+                <!-- ============================================================== -->
+                <!-- pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">General Tables </h2>
+                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Tables</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">General Tables</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end pageheader -->
+                <!-- ============================================================== -->
+               
+                    <div class="row">
+                        <!-- ============================================================== -->
+                        <!-- basic table -->
+                        <!-- ============================================================== -->
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">Basic Table</h5>
+                                <form>
+                                    <input type="text" name="search">
+                                    <input type="submit" value="searching" name="searching">
+                                </form>
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">BlogID</th>
+                                                <th scope="col">Comment</th>
+                                                <th scope="col">image</th>
+                                                <th scope="col">Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% for(var ad of commentData){ %>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td><%= ad.name %></td>
+                                                <td><%= ad.email %></td>
+                                                <td><%= ad.blogId.title %></td>
+                                                <td><%= ad.comment %></td>
+                                                <td><img src="<%= ad.image %>" height="50" /></td>
+                                                <td><% if(ad.isActive){ %>
+                                                        <a href="?active=1" class="btn btn-success">Active</a>
+                                                    <% } else { %>
+                                                        <a href="?deactive=0" class="btn btn-danger">Deactive</a>
+                                                    <% } %>
+                                                </td>
+                                            </tr>
+                                            <% } %>
+                                            
+                                           
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                   
+               
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+           

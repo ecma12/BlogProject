@@ -1,0 +1,154 @@
+<%- include('user_header') %>
+
+
+<section class="page-heading wow fadeIn" data-wow-duration="1.5s" style="background-image: url(files/images/01-heading.jpg)">
+    <div class="container">
+        <div class="page-name">
+            <h1></h1>
+            <span></span>
+        </div>
+    </div>
+</section>
+
+<section class="blog-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="blog-single-item">
+                    <img src="<%= singleR.avatar %>" alt="">
+                    <div class="blog-single-content">	
+                        <h3><a href="#"><%= singleR.title %></a></h3>
+                        <span><a href="#"><%= singleR.date %></a> / <a href="#"></a> / <a href="#">Uncategorized</a></span>
+                        <p><%= singleR.description %></p>
+                        <div class="share-post">
+                            <span>Share on: <a href="#">facebook</a>, <a href="#">twitter</a>, <a href="#">linkedin</a>, <a href="#">instagram</a></span>
+                        </div>
+                    </div>
+                    
+                    <div class="prev-btn col-md-6 col-sm-6 col-xs-6">
+                    <% if(allBlogsData[prev-1]){%>
+                            <a href="/user/blogSingle/<%= allBlogsData[prev-1] %>"><i class="fa fa-angle-left"></i>Previous</a>
+                            <% } %>
+                       
+                    </div>
+                
+                    <div class="next-btn col-md-6 col-sm-6 col-xs-6">
+                        <% if(allBlogsData[next+1]){ %>
+                        <a href="/user/blogSingle/<%= allBlogsData[next+1] %>">Next<i class="fa fa-angle-right"></i></a>
+                        <% } %>
+                    </div>	
+                
+                </div>
+                <div class="blog-comments">
+                    <h2><%= countComment %> Comments</h2>
+                    
+                    <ul class="coments-content">
+                        <% 
+                        var a=1;
+                        for(var cd of commentData){ 
+                            if(a%2==1){ %>
+                        <li class="first-comment-item">
+                            <img src="<%= cd.image %>" alt="">
+                            <span class="author-title"><%= cd.name %><a href="#"></a></span>
+                            <span class="comment-date"><%= cd.date %> / <a href="#">Reply</a>
+                            </span>
+                            <p><%= cd.comment %></p>
+                        </li>
+                       
+                        <% } else { %>
+
+                            <li class="second-comment-item">
+                                <img src="<%= cd.image %>" alt="">
+                                <span class="author-title"><%= cd.name %><a href="#"></a></span>
+                                <span class="comment-date"><%= cd.date %> / <a href="#">Reply</a>
+                                </span>
+                                <p><%= cd.comment %></p>
+                            </li>
+
+                        <% } a++;} %>
+
+                       
+
+                    </ul>
+                
+                </div>
+                <div class="submit-comment col-sm-12">
+                    <h2>Leave A Comment</h2>
+                    <form  method="post" enctype="multipart/form-data" action="/user/setComments">
+                        <input type="hidden" name="blogId" value="<%= blogId %>" />
+                        <div class=" col-md-4 col-sm-4 col-xs-6">
+                            <input type="text" class="blog-search-field" name="name" placeholder="Your name..." >
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <input type="text" class="blog-search-field" name="email" placeholder="Your email..." >
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <input type="file"  name="image">
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <textarea id="message" class="input"  name="comment" placeholder="Comment..."></textarea>
+                        </div>
+                        <div class="submit-coment col-md-12">
+                                <button type="submit" class="btn btn-success" name="save">submit now</button>
+                        </div>
+                    </form>		
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="widget-item">
+                    <h2>Search here</h2>
+                    <div class="dec-line"></div>
+                    <form method="get" id="blog-search" class="blog-search">
+                        <input type="text" class="blog-search-field" name="s" placeholder="Type keyword..." value="">
+                    </form>
+                </div>
+                <div class="widget-item">
+                    <h2>About Us</h2>
+                    <div class="dec-line">	
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique earum quod iste, natus quaerat facere a rem dolor sit amet, et placeat nemo.</p>
+                    <div class="social-icons">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="widget-item">
+                    <h2>Recent Posts</h2>
+                    <div class="dec-line"></div>
+                    <ul class="recent-item">
+                        <% for(var ld of lastRecord){%>
+                        <li class="recent-post-item">
+                            <a href="/user/blogSingle/<%= ld.id %>">
+                                <img src="<%= ld.avatar %>" alt="">
+                                <span class="post-title"><%= ld.title %></span>
+                            </a>
+                            <span class="post-info"><%= ld.date %></span>
+                        </li><br>
+                        <% } %>
+                       
+                    </ul>
+                </div>
+                <div class="widget-item">
+                    <h2>From Flickr</h2>
+                    <div class="dec-line"></div>
+                    <div class="flickr-feed">
+                        <ul class="flickr-images">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>	
+</section>
+
+
+
+
+
+
+<%- include('user_footer') %>

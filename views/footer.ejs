@@ -1,0 +1,75 @@
+<div class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                 Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="text-md-right footer-links d-none d-sm-block">
+                    <a href="javascript: void(0);">About</a>
+                    <a href="javascript: void(0);">Support</a>
+                    <a href="javascript: void(0);">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- end footer -->
+<!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- end wrapper  -->
+<!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- end main wrapper  -->
+<!-- ============================================================== -->
+<!-- Optional JavaScript -->
+<!-- jquery 3.3.1 -->
+<script src="https://cdn.tiny.cloud/1/xjs8etsa3f4n5zyksvdmv7iy3a13vjshx6boybynpx6n64n5/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/vendor/jquery/jquery-3.3.1.min.js"></script>
+<!-- bootstap bundle js -->
+<script src="/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<!-- slimscroll js -->
+<script src="/vendor/slimscroll/jquery.slimscroll.js"></script>
+<!-- main js -->
+<script src="/libs/js/main-js.js"></script>
+<!-- chart chartist js -->
+<script src="/vendor/charts/chartist-bundle/chartist.min.js"></script>
+<!-- sparkline js -->
+<script src="/vendor/charts/sparkline/jquery.sparkline.js"></script>
+<!-- morris js -->
+<script src="/vendor/charts/morris-bundle/raphael.min.js"></script>
+<script src="/vendor/charts/morris-bundle/morris.js"></script>
+<!-- chart c3 js -->
+<script src="/vendor/charts/c3charts/c3.min.js"></script>
+<script src="/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+<script src="/vendor/charts/c3charts/C3chartjs.js"></script>
+<script src="/libs/js/dashboard-ecommerce.js"></script>
+<script>
+ <% if(flash.success && flash.success.length > 0) { %>
+    new Noty({
+        theme: 'sunset',
+        layout: 'bottomCenter',
+        timeout : 1000, 
+        text: '<%= flash.success %>'
+    }).show();
+<% } %>
+</script>
+
+
+<!-- <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+      tinycomments_mode: 'embedded',
+     
+     
+    });
+  </script> -->
+</body>
+
+</html>

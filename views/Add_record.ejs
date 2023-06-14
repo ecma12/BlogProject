@@ -1,0 +1,152 @@
+
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="container-fluid  dashboard-content">
+                <!-- ============================================================== -->
+                <!-- pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Form Validations </h2>
+                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Forms</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Form Validations</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end pageheader -->
+                <!-- ============================================================== -->
+
+                    <div class="row">
+                        <!-- ============================================================== -->
+                        <!-- basic form -->
+                        <!-- ============================================================== -->
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 style="color:brown; font-size: 35px;" class="card-header" >Basic Form</h5>
+                                <% if(flash.success && flash.success.length > 0) { %>
+                                    <div class="alert alert-success">
+                                        <%= flash.success %>
+                                      </div>
+                                <% } %>
+
+                                <% if(flash.error && flash.error.length > 0) { %>
+                                    <div class="alert alert-danger">
+                                        <%= flash.error %>
+                                      </div>
+                                <% } %>
+                                <div class="card-body">
+                                    <form action="/insertAdminRecord" id="basicform" enctype="multipart/form-data" method="post">
+                                        <div class="form-group">
+                                            <label for="inputUserName">First Name</label>
+                                            <input id="inputUserName" type="text" name="fname" data-parsley-trigger="change" required="" placeholder="Enter First name" autocomplete="off" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="inputUserName">Last Name</label>
+                                            <input id="inputUserName" type="text" name="lname" data-parsley-trigger="change" required="" placeholder="Enter Last name" autocomplete="off" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="inputEmail">Email address</label>
+                                            <input id="inputEmail" type="email" name="email" data-parsley-trigger="change" required="" placeholder="Enter email" autocomplete="off" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputPassword">Password</label>
+                                            <input id="inputPassword" type="password" name="password" placeholder="Password" required="" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="inputPassword">phone</label>
+                                            <input id="inputPassword" type="text" name="phone" placeholder="Enter Phone" required="" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="selectGender">Select Gender</label><br>
+                                            <label class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" name="gender"  class="custom-control-input" value="Male"><span class="custom-control-label">Male</span>
+                                            </label>
+
+                                            <label class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" name="gender"  class="custom-control-input" value="Female"><span class="custom-control-label">Female</span>
+                                            </label>
+                                        </div>
+                                        
+                                        <div  class="form-group">
+                                            <label for="selectGender">Select Hobby</label><br>
+                                            <label class="be-checkbox custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" name="hobby[]" value="Reading"><span class="custom-control-label">Reading</span>
+                                            </label>
+
+                                            <label class="be-checkbox custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" name="hobby[]" value="Music"><span class="custom-control-label">Music</span>
+                                            </label>
+
+                                            <label class="be-checkbox custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" name="hobby[]" value="Adventure"><span class="custom-control-label">Adventure</span>
+                                            </label>
+                                        </div>
+
+                                        <% var city = ["Surat","Vadodara","Rajkot","Navasari"]%>
+
+                                        <div class="form-group">
+                                            <label for="input-select">Select City</label>
+                                            <select class="form-control" id="input-select" name="city">
+                                                <option value="">-- select city--</option>
+                                                <% city.map((v)=>{ %>
+                                                    <option value="<%= v %>"><%= v %></option>
+                                                <% }) %>
+                                            </select>
+                                        </div>
+
+
+                                        <div class="custom-file mb-3">
+                                            <input type="file" name="avatar" class="custom-file-input" id="customFile">
+                                            <label class="custom-file-label" for="customFile">Upload Image</label>
+                                        </div>
+                                        
+                                        <div class="row">
+                                           
+                                            <div class="col-sm-6 pl-0">
+                                                <p class="text-right">
+                                                    <input  type="submit" class="btn btn-space btn-primary" value="Add Admin" name="Submit">
+                                                    <button class="btn btn-space btn-secondary">Cancel</button>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- end basic form -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- horizontal form -->
+                        <!-- ============================================================== -->
+                        
+                        <!-- ============================================================== -->
+                        <!-- end horizontal form -->
+                        <!-- ============================================================== -->
+                    </div>
+                   
+           
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            
